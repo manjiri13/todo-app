@@ -17,5 +17,7 @@ from django.contrib import admin
 from django.urls import path,include # import include
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('todos.urls'))  # add this line
+    path('',include('todos.urls')), # add this line
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
